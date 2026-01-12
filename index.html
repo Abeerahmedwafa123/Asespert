@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asespert — Cambridge-aligned Teacher Self-Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="https://raw.githubusercontent.com/Abeerahmedwafa123/Mental-Math-/main/Edu%20Logo%20White.png" alt="Edulixa / Asespert logo" />
+      <div>
+        <div class="brand-title">Asespert</div>
+        <div class="brand-subtitle">AI-powered Cambridge-aligned Teacher Self-Assessment</div>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="btn ghost" id="btnReset" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="screenIntro">
+      <div class="card-head">
+        <h1>Teacher Self-Assessment</h1>
+        <p class="muted">
+          Complete the questionnaire step by step across 6 areas. Your scores will be mapped to:
+          Foundation • Developing • Proficient • Expert
+        </p>
+      </div>
+
+      <div class="scale-card">
+        <div class="scale-title">Likert Scale (1–5)</div>
+        <div class="scale-row">
+          <div class="pill">1 = Never / not yet</div>
+          <div class="pill">2 = Rarely</div>
+          <div class="pill">3 = Sometimes</div>
+          <div class="pill">4 = Often</div>
+          <div class="pill">5 = Always / consistently</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="teacherName">Teacher Name</label>
+          <input id="teacherName" type="text" placeholder="e.g., Sara" autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="assessmentType">Assessment Type</label>
+          <select id="assessmentType">
+            <option value="pre">Pre</option>
+            <option value="post">Post</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnStart" type="button">Start</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="screenQuiz">
+      <div class="quiz-top">
+        <div>
+          <div class="kicker">AREA <span id="areaIndex">1</span> OF 6</div>
+          <h2 id="areaTitle">Area Title</h2>
+          <p class="muted" id="areaDesc"></p>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="progress-text" id="progressText">0%</div>
+        </div>
+      </div>
+
+      <div id="items"></div>
+
+      <div class="field mt16">
+        <label id="commentLabel" for="areaComment">Open comment</label>
+        <textarea id="areaComment" rows="4"
+          placeholder="Write one strength and one improvement point..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="btnPrev" type="button">Back</button>
+        <button class="btn primary" id="btnNext" type="button">Next</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="screenResults">
+      <div class="card-head">
+        <h1>Results</h1>
+        <p class="muted" id="resultsMeta"></p>
+      </div>
+
+      <div id="resultsGrid" class="results-grid"></div>
+
+      <div class="divider"></div>
+
+      <div class="profile-box" id="profileBox"></div>
+
+      <div class="actions">
+        <button class="btn ghost" id="btnExport" type="button">Export JSON</button>
+        <button class="btn primary" id="btnAgain" type="button">New Assessment</button>
+      </div>
+    </section>
+
+    <div class="toast hidden" id="toast"></div>
+  </main>
+
+  <footer class="footer">
+    <span>© Asespert</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
